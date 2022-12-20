@@ -1,4 +1,4 @@
-# Minimal FastAPI Cohere Article Summarisation Application
+# Minimal Cohere Texrt Summarisation Application with FastAPI
 Minimal [FastAPI](https://fastapi.tiangolo.com) webapp to serve text summaries from [Cohere](https://cohere.ai) text summarisation [endpoint](https://docs.cohere.ai/docs/text-summarization-guide).
 
 ## Installation
