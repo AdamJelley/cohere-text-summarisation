@@ -1,5 +1,5 @@
 # Minimal Cohere Text Summarisation Application with FastAPI
-Minimal text summarisation webapp to serve LLM text summaries generated with a [Cohere](https://cohere.ai) text summarisation [endpoint](https://docs.cohere.ai/docs/text-summarization-guide) using [FastAPI](https://fastapi.tiangolo.com)
+Minimal text summarisation webapp to serve LLM text summaries generated with a [Cohere](https://cohere.ai) text summarisation [endpoint](https://docs.cohere.ai/docs/text-summarization-guide) using [FastAPI](https://fastapi.tiangolo.com).
 
 ## Installation
 Only `cohere` and `fastapi[all]` packages are required. These can be installed with:
