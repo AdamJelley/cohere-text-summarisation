@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cohere Text Summarisation</title>
+    </head>
+    <body>
+        <form id="form">
+            <label for"input">Enter input paragraph:</label><br>
+            <input type="text" id="input" name="input"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="summary"></div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $("#form").submit(function(e) {
+                $.ajax({
+                    type: "POST",
+                    url: "/summarise",
+                    data: JSON.stringify({
+                        article: $('#input').val()
+                    }),
+                    contentType: "application/json",
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response)
+                        var summary = response;
+                        $("#summary").html(summary);
+                    }
+                });
+                e.preventDefault();
+            });
+        </script>
+    </body>
+</html>

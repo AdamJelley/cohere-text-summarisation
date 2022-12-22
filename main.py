@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+from pydantic import BaseModel
 
 from cohere_endpoints.summarisation import generate_response
 
@@ -7,9 +9,24 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return (
-        "Go to {current_url}/docs and use summarisation endpoint to summarise article."
-    )
+    with open("templates/index.html") as f:
+        html = f.read()
+    return HTMLResponse(html)
+
+
+class TextRequest(BaseModel):
+    article: str
+
+
+@app.post("/summarise")
+async def summarise_article(article: TextRequest):
+    print(article)
+    article = article.dict()["article"]
+    article = article.replace("_", " ")
+
+    summary = generate_response(article)
+
+    return summary.generations[0].text
 
 
 @app.get("/summarise/{article}")
